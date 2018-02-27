@@ -75,7 +75,7 @@ void Processor(std::vector<std::string>* vector,size_t index ){
 
 
         } else if (index == vector->size()){
-            int fd = open("result.out",O_RDWR | O_CREAT , S_IRUSR | S_IWUSR);
+            int fd = open("/home/box/result.out",O_RDWR | O_CREAT , S_IRUSR | S_IWUSR);
             dup2(fd,STDOUT_FILENO);
             close(pfd[1]);
             close(pfd[0]);
