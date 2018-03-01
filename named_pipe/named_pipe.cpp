@@ -9,8 +9,8 @@
 #include <wait.h>
 #include <cstring>
 
-const char* in_name = "in.fifo";
-const char* out_name = "out.fifo";
+const char* in_name = "/home/box/in.fifo";
+const char* out_name = "/home/box/out.fifo";
 
 int main(int argc, char **argv) {
     int fd_in = -1;
@@ -49,10 +49,10 @@ int main(int argc, char **argv) {
             break;
         }
     }
-   // close(fd_in);
-    //close(fd_out);
-    //remove("in.fifo");
-    //remove("out.fifo");
+    close(fd_in);
+    close(fd_out);
+    remove(in_name);
+    remove(out_name);
     return 0;
 
 
