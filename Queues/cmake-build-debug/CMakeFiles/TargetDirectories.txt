@@ -1,0 +1,3 @@
+/home/wishell/stepic/Stepic_repo/Queues/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/wishell/stepic/Stepic_repo/Queues/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/wishell/stepic/Stepic_repo/Queues/cmake-build-debug/CMakeFiles/posix_queue.dir

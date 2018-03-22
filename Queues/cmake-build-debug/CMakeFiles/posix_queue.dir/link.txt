@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++14 -g   CMakeFiles/posix_queue.dir/posix_queue.cpp.o  -o posix_queue 

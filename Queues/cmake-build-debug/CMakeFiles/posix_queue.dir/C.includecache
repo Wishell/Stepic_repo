@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wishell/stepic/Stepic_repo/Queues/posix_queue.c
+mqueue.h
+-
+sys/stat.h
+-
+errno.h
+-
+stdio.h
+-
+memory.h
+-
+unistd.h
+-
+
