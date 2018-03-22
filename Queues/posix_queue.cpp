@@ -5,11 +5,13 @@
 #include <memory.h>
 #include <unistd.h>
 
-#define MQNAME "test.mq"
+#define MQNAME "/test.mq"
 
 
 int main(){
-
+    if (0 == mq_unlink(MQNAME)){
+    printf(mq removed);
+    }
     struct mq_attr attr;
     attr.mq_flags=0;
     attr.mq_maxmsg =10;
@@ -26,19 +28,21 @@ int main(){
     char buffer[128];
     memset(buffer,0,sizeof(buffer));
 
-    int fd = open("/message.txt", O_CREAT | O_WRONLY |O_TRUNC);
+    int fd = open("/home/box/message.txt", O_CREAT | O_WRONLY |O_TRUNC, 0666);
     if (-1 == fd){
         printf("error open file message.txt %d", errno);
         return 1;
     }
     while (1){
-     size_t size = mq_receive(mq,buffer,attr.mq_msgsize,0);
+     int size = mq_receive(mq,buffer,attr.mq_msgsize,0);
+                printf("readed msg size %d", attr.mq_msgsize);
             if(errno != EAGAIN){
                 printf("error read message %d", errno);
                 return 1;
             } else if (size > 0){
                 write(fd,buffer,attr.mq_msgsize);
-                printf("message read sucsess");
+                printf("message read sucsess %s", buffer);
+                mq_unlink(MQNAME);
                 break;
             }
 
